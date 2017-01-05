@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Exception;
+use Illuminate\Database\Eloquent\Model;
+
+class ApprovableModuleModel extends Model {
+
+    public $timestamps   = false;
+    public $incrementing = false;
+
+    public function updateStatus($status) {
+
+        if (!$this->statusKey) {
+            throw new Exception("statusKey not set in the model of this document. Due to this, the system is unable to set the document's status. Please contact your administrator.");
+        }
+
+        $this->{$this->statusKey} = $status;
+        $this->save();
+    }
+
+}

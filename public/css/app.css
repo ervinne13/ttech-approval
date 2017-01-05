@@ -1,0 +1,151 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 24, 2016, 4:36:54 PM
+    Author     : ervinne
+*/
+
+/*General Elements*/
+.table {
+    font-size: 13px;
+}
+
+/*Custom Elements*/
+
+.swal-wide{
+    width:850px !important;
+    margin-left: -425px;
+}
+
+/* SG Doc No */
+.sg-ibox-title {
+    padding-top: 2px;
+}
+
+.sg-ibox-title > :not(#generated-doc-no-container) {
+    margin-top: 12px;
+}
+
+#generated-doc-no-container > .doc-no-id-selection {
+    margin-bottom: 0px;
+}
+
+#generated-doc-no-container > .doc-no-label {
+    margin-top: 12px;
+}
+
+#generated-doc-no-container > .sk-spinner {
+    margin-top: 4px;
+}
+/* /SG Doc No */
+
+.sg-small-field-group {
+    margin-bottom: 8px;
+}
+
+.sg-small-field {
+    height: 24px;
+    font-size: 13px;
+}
+
+.chosen-container-single .chosen-single {
+    height: 22px !important;
+    border-radius: 3px;
+    border: 1px solid #CCCCCC;
+    padding-left: 8px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.chosen-container-single .chosen-single span {
+    padding-top: 0px;
+}
+.chosen-container-single .chosen-single div b {
+    margin-top: 0px;
+}
+
+.chosen-container .chosen-results li.highlighted {
+    background-image:none !important;
+    background-color: #1ab394;
+}
+
+.chosen-container .chosen-container-single .chosen-container-active .chosen-with-drop > a {
+    background-image:none !important;
+}
+
+.popover[class*=tour-] {
+    z-index: 2000 !important;
+}
+
+.form-view-value {
+    margin-top: 7px;
+}
+
+/*Text*/
+
+.large-text-blue {
+    font-weight: 900;
+    color: #4077DE;
+}
+
+.large-text-orange {
+    font-weight: 900;
+    color: orange;
+}
+
+/*Other Custom Elements*/
+
+.sidebar-avatar-img-container {
+    margin: auto;    
+    text-align:center;
+    width: 75px;
+    height: 75px;
+}
+
+.sidebar-avatar-img {
+    width: inherit;
+    height: inherit;
+    -webkit-border-radius: 75px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 75px;
+    -moz-background-clip: padding;
+    border-radius: 75px;
+    background-clip: padding-box;
+    margin: 7px 0 0 5px;
+    float: left;
+    background-size: cover;
+    background-position: center center;
+}
+
+.circle-container{
+    margin:auto;
+    border:2px solid #1ab394;
+    background-color:gray;
+    border-radius:100px;
+    width:75px;
+    height:75px;
+    text-align:center;
+}
+
+.circle-container .fa {
+    color:white;
+    line-height:75px;
+}
+
+/*Element Modifications*/
+input[type="checkbox"]:focus{
+    outline:0!important;
+}
+
+/*Custom Text*/
+.text-blue {
+    font-weight: 900;
+    color: #4077DE;
+}
+
+.text-orange {
+    font-weight: 900;
+    color: orange;
+}
