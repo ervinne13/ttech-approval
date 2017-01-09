@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Purchasing\PurchaseOrder;
+use App\Models\Purchasing\PurchaseRequest;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,9 @@ class ApprovalController extends Controller {
             switch ($moduleId) {
                 case "PO":
                     $modelObj = PurchaseOrder::find($documentNumber);
+                    break;
+                case "PR":
+                    $modelObj = PurchaseRequest::find($documentNumber);
                     break;
                 default:
                     throw new Exception("Unsupported module: {$moduleId}");

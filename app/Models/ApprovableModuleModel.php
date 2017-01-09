@@ -20,4 +20,9 @@ class ApprovableModuleModel extends Model {
         $this->save();
     }
 
+    //  TODO move this relationship to another trait or model
+    public function createdByUser() {
+        return $this->belongsTo(User::class, "CreatedBy");
+    }
+
 }

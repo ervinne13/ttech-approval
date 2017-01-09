@@ -9,6 +9,9 @@ function SGGetDocumentViewURL($docNo) {
         case "PO":
             $moduleURL = "/purchase-order/";
             break;
+        case "PR":
+            $moduleURL = "/purchase-request/";
+            break;
         default:
 //            throw new Exception("The module for document {$docNo} was not found or is not supported");
             return "/module-unsupported/{$docNo}";

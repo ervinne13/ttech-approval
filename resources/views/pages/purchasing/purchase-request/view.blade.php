@@ -31,14 +31,14 @@ var documentTrackList = {!! $documentTrackList !!}
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Purchase Order</h5>
+                <h5>Purchase Request</h5>
                 <div class="ibox-tools">
                     <a class="dropdown-toggle m-r-md" data-toggle="dropdown" href="#">
                         <i class="fa fa-bolt"></i>
                         Functions
                     </a>
-                    <ul class="dropdown-menu dropdown-user" id="sg-approval-function-container" data-module-id="{{$moduleId}}" data-document-number="{{$PO->PO_DocNo}}">
-                        @if ($PO->PO_Status == "Pending")
+                    <ul class="dropdown-menu dropdown-user" id="sg-approval-function-container" data-module-id="{{$moduleId}}" data-document-number="{{$PR->PR_DocNo}}">
+                        @if ($PR->PR_Status == "Pending")
                         <li>
                             <a href="#" id="action-approve" data-action="approve" class="text-navy sg-approval-function">
                                 <i class="fa fa-check"></i>
@@ -71,19 +71,20 @@ var documentTrackList = {!! $documentTrackList !!}
                 <div class="row m-b-md">
                     <div class="col-lg-4">
                         <h1 class="no-margins text-navy pull-left">
-                            {{$PO->PO_DocNo}}
+                            {{$PR->PR_DocNo}}
                         </h1>
                         <div class="font-bold pull-left">
-                            Created By: {{$PO->createdByUser->U_Username}} ({{$PO->CreatedBy}})
+                            Created By: {{$PR->createdByUser->U_Username}} ({{$PR->CreatedBy}})
                         </div>
-                    </div>
+                    </div>                      
 
                     <div class="col-lg-3 col-lg-offset-5">
                         <h2 class="no-margins text-navy pull-right">
-                            P {{number_format($PO->PO_Amount, 2)}}                    
+                            P {{number_format($PR->PR_Amount, 2)}}                    
                         </h2>
-                        <div class="font-bold pull-right">Document Total Amount of {{count($PO->details)}} Item(s)</div>
+                        <div class="font-bold pull-right">Document Total Amount of {{count($PR->details)}} Item(s)</div>
                     </div>
+
                 </div>
 
                 <hr>
@@ -91,103 +92,69 @@ var documentTrackList = {!! $documentTrackList !!}
                 <div class="row">
 
                     <!--Column 1-->
-
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Supplier Name:</label>
+                            <label class="control-label col-md-5">Ext. Doc. No.:</label>
                             <div class="col-md-7">
-                                <p>{{$PO->PO_SupplierName}}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Supplier ID:</label>
-                            <div class="col-md-7">
-                                <p>{{$PO->PO_SupplierID}}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Supplier Address:</label>
-                            <div class="col-md-7">
-                                <p>{{$PO->PO_SupplierAddress}}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Payment Terms:</label>
-                            <div class="col-md-7">
-                                <p>{{$PO->paymentTerm->PT_Desc}}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Due Date:</label>
-                            <div class="col-md-7">
-                                <p>{{date('m/d/Y', strtotime($PO->PO_DueDate))}}</p>
+                                <p>{{$PR->PR_ExtDocNo}}</p>
                             </div>
                         </div>
 
                         <div class="form-group sg-small-field-group col-md-12">
                             <label class="control-label col-md-5">Remarks:</label>
                             <div class="col-md-7">
-                                <p>{{$PO->PO_Remarks}}</p>
+                                <p>{{$PR->PR_Remarks}}</p>
                             </div>
                         </div>
-
                     </div>
 
                     <!--End of column 1-->
 
                     <!--Column 2-->
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Document Date:</label>
+                            <label class="control-label col-md-5">Doc. Date:</label>
                             <div class="col-md-7">
-                                <p>{{date('m/d/Y', strtotime($PO->PO_DocDate))}}</p>
+                                <p>{{date('m/d/Y', strtotime($PR->PR_DocDate))}}</p>
                             </div>
                         </div>
 
                         <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Validity Date:</label>
+                            <label class="control-label col-md-5">Date Needed:</label>
                             <div class="col-md-7">
-                                <p>{{date('m/d/Y', strtotime($PO->PO_ValidityDate))}}</p>
+                                <p>{{date('m/d/Y', strtotime($PR->PR_DateRequired))}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of Column 2-->
+
+                    <!--Column 3-->
+                    <div class="col-lg-4">
+                        <div class="form-group sg-small-field-group col-md-12">
+                            <label class="control-label col-md-5">Company:</label>
+                            <div class="col-md-7">
+                                <p>{{$PR->location->company->COM_Name}}</p>
                             </div>
                         </div>
 
                         <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Expected Delivery Date:</label>
+                            <label class="control-label col-md-5">Location:</label>
                             <div class="col-md-7">
-                                <p>{{date('m/d/Y', strtotime($PO->PO_ExpectedDeliveryDate))}}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">External Doc. No:</label>
-                            <div class="col-md-7">
-                                <p>{{ $PO->PO_ShipmentNo }}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group sg-small-field-group col-md-12">
-                            <label class="control-label col-md-5">Supplier Ref.No:</label>
-                            <div class="col-md-7">
-                                <p>{{ $PO->PO_SupplierInvoice }}</p>
+                                <p>{{$PR->location->SP_StoreName}}</p>
                             </div>
                         </div>
 
                         <div class="form-group sg-small-field-group col-md-12">
                             <label class="control-label col-md-5">Status:</label>
                             <div class="col-md-7">
-                                <p class="text-navy">{{ $PO->PO_Status }}</p>
+                                <p>{{$PR->PR_Status}}</p>
                             </div>
                         </div>
-
-
                     </div>
 
-                    <!--End of Column 2-->
+                    <!--End of column 3-->
+
                 </div>
 
             </div>
@@ -217,26 +184,24 @@ var documentTrackList = {!! $documentTrackList !!}
                                 <th>Description</th>
                                 <th>Qty</th>
                                 <th>UOM</th>
-                                <th>Unit Cost</th>
+                                <th>Unit Price</th>
                                 <th>Total Cost</th>
                                 <th>Comment</th>
-                                <th>Ref. From</th>
                                 <th>Ref. To</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($PO->details AS $detail)
+                            @foreach($PR->details AS $detail)
                             <tr>
                                 <td></td>
-                                <td>{{ $detail->POD_ItemNo }}</td>
-                                <td>{{ $detail->POD_ItemDescription }}</td>
-                                <td>{{ number_format($detail->POD_Qty) }}</td>
+                                <td>{{ $detail->PRD_ItemNo }}</td>
+                                <td>{{ $detail->PRD_ItemDescription }}</td>
+                                <td>{{ number_format($detail->PRD_Qty) }}</td>
                                 <td>{{ $detail->UOMAttribute->AD_Desc }}</td>
-                                <td>{{  number_format($detail->POD_UnitPrice, 2) }}</td>
-                                <td>{{  number_format($detail->POD_Total, 2) }}</td>
-                                <td>{{ $detail->POD_Comments }}</td>
-                                <td>{{ $detail->POD_RefFrom }}</td>
-                                <td>{{ $detail->POD_RefTo }}</td>
+                                <td>{{ number_format($detail->PRD_UnitPrice, 2) }}</td>
+                                <td>{{ number_format($detail->PRD_Amount, 2) }}</td>
+                                <td>{{ $detail->PRD_Comments }}</td>                                
+                                <td>{{ $detail->PRD_RefTo }}</td>
                             </tr>
                             @endforeach                            
                         </tbody>

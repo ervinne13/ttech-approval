@@ -58,7 +58,7 @@ class DocumentApprovalService {
             $currentApprovalTrack->DT_Status       = "Rejected";
             $currentApprovalTrack->DT_Remarks      = $remarks;
             $currentApprovalTrack->DT_ApprovedBy   = $approver->U_User_id;
-            $currentApprovalTrack->DT_ApprovedDate = new Date();
+            $currentApprovalTrack->DT_DateApproved = new DateTime();
             $currentApprovalTrack->save();
 
             $modelObj->updateStatus("Rejected");

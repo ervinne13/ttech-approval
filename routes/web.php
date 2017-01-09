@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('tracking/datatable', 'DocumentTrackingController@datatable');
 
     Route::resource('purchase-order', 'Purchasing\PurchaseOrderController');
+    Route::resource('purchase-request', 'Purchasing\PurchaseRequestController');
 
     Route::post('approval/{moduleId}/{action}', 'ApprovalController@action');
 
