@@ -52,14 +52,18 @@ class DocumentApprovalService {
         $currentApprovalTrack = $this->getCurrentApprovalEntry($modelObj->getKey(), $approver->U_FK_Position_id);
         $this->validateEligibility($currentApprovalTrack);
 
+//        throw new Exception(json_encode($currentApprovalTrack));
+
         try {
             DB::beginTransaction();
 
-            $currentApprovalTrack->DT_Status       = "Rejected";
-            $currentApprovalTrack->DT_Remarks      = $remarks;
-            $currentApprovalTrack->DT_ApprovedBy   = $approver->U_User_id;
-            $currentApprovalTrack->DT_DateApproved = new DateTime();
-            $currentApprovalTrack->save();
+            DocumentTracking::where("DT_EntryNo", $currentApprovalTrack->DT_EntryNo)
+                    ->update([
+                        "DT_Status"       => 'Rejected',
+                        "DT_Remarks"      => $remarks,
+                        "DT_ApprovedBy"   => $approver->U_User_id,
+                        "DT_DateApproved" => new DateTime()
+            ]);
 
             $modelObj->updateStatus("Rejected");
 
