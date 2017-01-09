@@ -39,7 +39,7 @@
                 <div class="m-t-md"></div>
 
                 <button class="btn btn-primary col-lg-6" id="action-update-password">Update Password</button>
-                <button class="btn btn-default col-lg-6">Cancel</button>                
+                <a href="/" class="btn btn-default col-lg-6">Cancel</a>                
 
                 <div class="clearfix"></div>
             </div>

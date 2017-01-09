@@ -78,7 +78,8 @@ class DocumentTracking extends Model {
     public function currentDocumentTrack() {
         return $this->belongsTo(DocumentTracking::class, 'DT_DocNo')
                         ->where("DT_Status", "Pending")
-                        ->orderBy('DT_EntryNo', 'DESC');
+//                        ->orderBy('DT_EntryNo', 'DESC');
+                        ->orderBy('DT_EntryNo', 'ASC');
     }
 
     // </editor-fold>

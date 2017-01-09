@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DocumentTracking;
 use App\Models\Purchasing\PurchaseOrder;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PurchaseOrderController extends Controller {
 
@@ -20,7 +21,11 @@ class PurchaseOrderController extends Controller {
      */
     public function show($docNo) {
 
-        $PO                = PurchaseOrder::find($docNo);
+        $currentUser = Auth::user();
+
+        $PO = PurchaseOrder::find($docNo);
+        $PO->setViewed($currentUser->U_FK_Position_id);
+
         $documentTrackList = DocumentTracking::Document($PO->getKey())
                 ->with('approverPosition')
                 ->with('approvedBy')

@@ -20,7 +20,10 @@ class PurchaseRequestController extends Controller {
      */
     public function show($docNo) {
 
+        $currentUser = Auth::user();
+
         $PR = PurchaseRequest::with("details")->find($docNo);
+        $PR->setViewed($currentUser->U_FK_Position_id);
 
         $documentTrackList = DocumentTracking::Document($PR->getKey())
                 ->with('approverPosition')

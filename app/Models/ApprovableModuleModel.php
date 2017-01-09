@@ -20,6 +20,19 @@ class ApprovableModuleModel extends Model {
         $this->save();
     }
 
+    public function setViewed($positionId) {
+
+        $currentTrack = DocumentTracking::ForApprovalBy($positionId)
+                ->pending()
+                ->orderBy('DT_EntryNo', 'ASC')
+                ->first();
+
+        $currentTrack->DT_Viewed = 1;
+        $currentTrack->save();
+
+        return $currentTrack;
+    }
+
     //  TODO move this relationship to another trait or model
     public function createdByUser() {
         return $this->belongsTo(User::class, "CreatedBy");
