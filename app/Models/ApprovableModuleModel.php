@@ -21,16 +21,22 @@ class ApprovableModuleModel extends Model {
     }
 
     public function setViewed($positionId) {
-
+      
         $currentTrack = DocumentTracking::ForApprovalBy($positionId)
+                ->document($this->getKey())
                 ->pending()
                 ->orderBy('DT_EntryNo', 'ASC')
                 ->first();
 
+        if ($currentTrack) {
+        
         $currentTrack->DT_Viewed = 1;
         $currentTrack->save();
 
         return $currentTrack;
+        } else {
+            throw new Exception("Document Track Not Found. Perhaps you are not the approver of this document anymore.");
+        }
     }
 
     //  TODO move this relationship to another trait or model

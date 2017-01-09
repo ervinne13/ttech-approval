@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Purchasing;
 use App\Http\Controllers\Controller;
 use App\Models\DocumentTracking;
 use App\Models\Purchasing\PurchaseRequest;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class PurchaseRequestController extends Controller {

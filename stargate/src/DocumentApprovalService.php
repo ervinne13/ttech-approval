@@ -127,6 +127,7 @@ class DocumentApprovalService {
         $documentTrack = DocumentTracking::where("DT_DocNo", $documentNumber)
                 ->where("DT_Approver", $approverPosition)
                 ->where("DT_Status", "Pending")
+                ->orderBy('DT_EntryNo', 'DESC')
                 ->first()
         ;
 
