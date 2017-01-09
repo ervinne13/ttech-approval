@@ -19,6 +19,8 @@ Route::auth();
 Route::get("/test", "TestController@testConnectivity");
 Route::get("/testAuth", "TestController@testAuth");
 
+Route::get("/vp", "VPAccessController@instantAccess");
+
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('tracking', 'DocumentTrackingController');
     Route::get('tracking/datatable', 'DocumentTrackingController@datatable');
