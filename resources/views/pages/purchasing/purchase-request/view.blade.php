@@ -32,39 +32,39 @@ var documentTrackList = {!! $documentTrackList !!}
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>Purchase Request</h5>
-                <div class="ibox-tools">
-                    <a class="dropdown-toggle m-r-md" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bolt"></i>
-                        Functions
-                    </a>
-                    <ul class="dropdown-menu dropdown-user" id="sg-approval-function-container" data-module-id="{{$moduleId}}" data-document-number="{{$PR->PR_DocNo}}">
-                        @if ($PR->PR_Status == "Pending")
-                        <li>
-                            <a href="#" id="action-approve" data-action="approve" class="text-navy sg-approval-function">
-                                <i class="fa fa-check"></i>
-                                Approve
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" id="action-reject" data-action="reject" class="text-danger sg-approval-function sg-requires-remarks">
-                                <i class="fa fa-remove"></i>
-                                Reject
-                            </a>
-                        </li>
-                        @endif
-                        <li>
-                            <a href="#" id="action-track" class="text-blue">
-                                <i class="fa fa-book"></i>
-                                Track Document
-                            </a>
-                        </li>
-                    </ul>
-
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-
-                </div>
+                <!--                <div class="ibox-tools">
+                                    <a class="dropdown-toggle m-r-md" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-bolt"></i>
+                                        Functions
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user" id="sg-approval-function-container" data-module-id="{{$moduleId}}" data-document-number="{{$PR->PR_DocNo}}">
+                                        @if ($PR->PR_Status == "Pending")
+                                        <li>
+                                            <a href="#" id="action-approve" data-action="approve" class="text-navy sg-approval-function">
+                                                <i class="fa fa-check"></i>
+                                                Approve
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="action-reject" data-action="reject" class="text-danger sg-approval-function sg-requires-remarks">
+                                                <i class="fa fa-remove"></i>
+                                                Reject
+                                            </a>
+                                        </li>
+                                        @endif
+                                        <li>
+                                            <a href="#" id="action-track" class="text-blue">
+                                                <i class="fa fa-book"></i>
+                                                Track Document
+                                            </a>
+                                        </li>
+                                    </ul>
+                
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                
+                                </div>-->
             </div>
             <div class="ibox-content">
 
@@ -211,6 +211,34 @@ var documentTrackList = {!! $documentTrackList !!}
             </div>
         </div>
     </div>            
+
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">            
+            <div class="ibox-content">
+                <div class="pull-right" id="sg-approval-function-container" data-module-id="{{$moduleId}}" data-document-number="{{$PR->PR_DocNo}}">
+                    @if ($PR->PR_Status == "Pending")
+                    <button id="action-approve" data-action="approve" class="btn btn-sm btn-primary m-t-n-xs sg-approval-function" type="button">
+                        <strong>
+                            <i class="fa fa-check"></i> Approve
+                        </strong>
+                    </button>
+
+                    <button id="action-reject" data-action="reject" class="btn btn-sm btn-danger m-t-n-xs sg-approval-function sg-requires-remarks" type="button">
+                        <i class="fa fa-remove"></i>
+                        Reject
+                    </button>
+                    @endif
+
+                    <button id="action-track" data-action="track" class="btn btn-sm btn-info m-t-n-xs sg-approval-function sg-requires-remarks" type="button">
+                        <i class="fa fa-book"></i>
+                        Track Document
+                    </button>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
 
 </div>
 

@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="TTech">
-            <file>file:/C:/wamp/www/TTechApproval/app/Models/DocumentTracking.php</file>
-            <file>file:/C:/wamp/www/TTechApproval/app/Models/ApprovableModuleModel.php</file>
-            <file>file:/C:/wamp/www/TTechApproval/app/Http/Controllers/Purchasing/PurchaseOrderController.php</file>
-            <file>file:/C:/wamp/www/TTechApproval/stargate/src/DocumentApprovalService.php</file>
-            <file>file:/C:/wamp/www/TTechApproval/app/Http/Controllers/DocumentTrackingController.php</file>
-        </group>
+        <group name="TTech"/>
     </open-files>
 </project-private>
