@@ -195,7 +195,7 @@ var documentTrackList = {!! $documentTrackList !!}
                             <tr>
                                 <td></td>
                                 <td>{{ $detail->PRD_ItemNo }}</td>
-                                <td>{{ $detail->PRD_ItemDescription }}</td>
+                                <td>{{ $detail->PRD_Description }}</td>
                                 <td>{{ number_format($detail->PRD_Qty) }}</td>
                                 <td>{{ $detail->UOMAttribute->AD_Desc }}</td>
                                 <td>{{ number_format($detail->PRD_UnitPrice, 2) }}</td>
