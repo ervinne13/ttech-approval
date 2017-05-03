@@ -200,7 +200,7 @@ var documentTrackList = {!! $documentTrackList !!}
                                 <td>{{ $detail->UOMAttribute->AD_Desc }}</td>
                                 <td>{{ number_format($detail->PRD_UnitPrice, 2) }}</td>
                                 <td>{{ number_format($detail->PRD_Amount, 2) }}</td>
-                                <td>{{ $detail->PRD_Comments }}</td>                                
+                                <td>{{ $detail->PRD_Comment }}</td>                                
                                 <td>{{ $detail->PRD_RefTo }}</td>
                             </tr>
                             @endforeach                            
